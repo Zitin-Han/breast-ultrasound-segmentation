@@ -1,0 +1,27 @@
+# nnU-Net v2
+nnunetv2>=2.2.0
+
+# 数据处理
+SimpleITK>=1.2.0
+Pillow>=9.0.0
+opencv-python>=4.8.0
+
+# 深度学习
+torch>=2.0.0
+torchvision>=0.15.0
+
+# ONNX
+onnx>=1.14.0
+onnxruntime-gpu>=1.16.0  # GPU 推理
+# onnxruntime>=1.16.0     # CPU 推理
+
+# Web 界面
+streamlit>=1.28.0
+streamlit-webrtc>=0.47.0
+
+# 工具
+tqdm>=4.65.0
+numpy>=1.24.0
+scipy>=1.11.0
+matplotlib>=3.7.0
+requests>=2.31.0

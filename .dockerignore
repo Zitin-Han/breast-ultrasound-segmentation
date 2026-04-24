@@ -1,0 +1,27 @@
+# Data files (download at runtime)
+data/
+
+# Models (trained at runtime)
+models/
+
+# Python
+__pycache__/
+*.py[cod]
+
+# Virtual environments
+venv/
+.venv/
+
+# IDE
+.vscode/
+.idea/
+
+# Git
+.git/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Output
+output/

@@ -1,0 +1,39 @@
+services:
+  train:
+    build: .
+    image: breast-segmentation:latest
+    container_name: breast-seg-train
+    volumes:
+      - ./data:/workspace/data
+      - ./models:/workspace/models
+      - ./output:/workspace/output
+    ports:
+      - "8501:8501"
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+    stdin_open: true
+    tty: true
+    command: bash train.sh
+
+  web:
+    build: .
+    image: breast-segmentation:latest
+    container_name: breast-seg-web
+    volumes:
+      - ./data:/workspace/data
+      - ./models:/workspace/models
+    ports:
+      - "8501:8501"
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+    command: streamlit run scripts/05_web_app.py --server.port 8501 --server.address 0.0.0.0
